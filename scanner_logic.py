@@ -23,15 +23,11 @@ class Scanner:
         gray = cv2.cvtColor(self.image,cv2.COLOR_BGR2GRAY)
         #blur image
         blur = cv2.GaussianBlur(gray,  (5, 5), 0)
-        
-        # sharpen image
-        # sharpen_kernel = numpy.array([[-1,-1,-1], [-1,9,-1], [-1,-1,-1]])
-        # sharpen = cv2.filter2D(blur, -1, sharpen_kernel)
         #edged the image
         edged = cv2.Canny(blur, 75, 50)
-        cv2.imshow("title", edged)
-        cv2.waitKey(0)
-        cv2.destroyAllWindows()
+        # cv2.imshow("title", edged)
+        # cv2.waitKey(0)
+        # cv2.destroyAllWindows()
         return edged
     
     def detect_document(self):
@@ -50,10 +46,11 @@ class Scanner:
             # If approx. contour has four points, then we can assume that we have found the document
             if len(approximation) == 4:
                 screenCnt = approximation
+                #draw the edges
                 cv2.drawContours(self.image, [screenCnt], -1, (0, 255, 0), 2)
-                cv2.imshow("title", self.image)
-                cv2.waitKey(0)
-                cv2.destroyAllWindows()
+                # cv2.imshow("title", self.image)
+                # cv2.waitKey(0)
+                # cv2.destroyAllWindows()
                 break
         corners = []
         for d in screenCnt:

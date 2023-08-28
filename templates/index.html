@@ -1,0 +1,34 @@
+<html>
+    <head>
+        <title>Nhim Scanner</title>
+    </head>
+    <body>
+        <h1>Upload images</h1>
+        <form action = "http://localhost:5000/file" method = "POST" 
+            enctype = "multipart/form-data" >
+            <input type = "file" name = "file" multiple />
+            <br>
+            <input type = "submit"/>
+        </form>  
+        <div>
+            <h1>List of uploaded images</h1>
+            <p> {{image_no}} image(s) uploaded</p>
+        </div>
+        <div>
+            <h1>Scanning operations</h1>
+            <p>change corner</p>
+            <p>change mode</p>
+            <ul>
+                <li>Sharpen</li>
+                <li>Black and white</li>
+                <li>Color</li>
+                <li>Color + sharpen</li>
+                <li>Black and white + sharpen</li>
+            </ul>
+        </div>
+        <form action = "http://localhost:5000/file" method = "GET" >
+            <br>
+            <button type = "submit">DOWNLOAD PDF</button>
+        </form>
+    </body>
+</html>
